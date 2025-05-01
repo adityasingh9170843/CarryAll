@@ -6,6 +6,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { json, urlencoded } from "express";
 import fs from "fs";
+import db from "./config/mongoose-connection.js";
+import ownersRouter from "./routes/ownersRouter.js";
+import usersRouter from "./routes/usersRouter.js";
+import productsRouter from "./routes/productsRouter.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -28,10 +32,9 @@ app.set("view engine", "ejs");
 
 
 
-
-app.get("/",(req,res)=>{
-    res.send("Hello")
-})
+app.use("/owners",ownersRouter);
+app.use("/users",usersRouter);
+app.use("/products",productsRouter);
 
 
 
