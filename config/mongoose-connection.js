@@ -1,12 +1,17 @@
 import mongoose from "mongoose";
+import debug from "debug";
+const dbgr = debug("development:mongoose");
 
+mongoose.set("debug", true);
+import config from "config";
 mongoose
-  .connect("mongodb://127.0.0.1:27017/CarryAll")
+  .connect(`${config.get("MONGO_URI")}/carryAll`)
   .then(() => {
-    console.log("Connected to database");
+    dbgr("Connected to database");
   })
   .catch((err) => {
-    console.log(err);
+    dbgr(err);
   });
 
+mongoose.set("debug", true);
 export default mongoose.connection;
