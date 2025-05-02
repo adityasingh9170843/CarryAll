@@ -11,13 +11,15 @@ import index from "./routes/index.js";
 import ownersRouter from "./routes/ownersRouter.js";
 import usersRouter from "./routes/usersRouter.js";
 import productsRouter from "./routes/productsRouter.js";
+import dotenv from "dotenv";
+import expressSession from "express-session";
+
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
 
-
-
+dotenv.config();
 
 
 const app = express();
