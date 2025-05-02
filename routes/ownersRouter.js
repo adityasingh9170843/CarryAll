@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
 router.post("/create", async (req, res) => {
   let { fullname, email, password } = req.body;
   let owners = await ownerModel.find();
-  if (owners.length > 0) return res.status(503).send("you dont have permission");
+  if (owners.length > 0)
+    return res.status(503).send("you dont have permission");
   let createdOwner = await ownerModel.create({
     fullname,
     email,
@@ -18,8 +19,9 @@ router.post("/create", async (req, res) => {
   res.status(201).send(createdOwner);
 });
 
-router.get("/admin",(req,res)=>{
-    res.render("createproducts");
-})
+router.get("/admin", (req, res) => {
+  let success = req.flash("success");
+  res.render("createproducts", { success });
+});
 
 export default router;

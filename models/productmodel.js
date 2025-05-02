@@ -1,10 +1,11 @@
+import { name } from "ejs";
 import mongoose from "mongoose";
 
 
 
 const productSchema = mongoose.Schema({
-    image: String,
-    title: String,
+    image: Buffer,
+    name: String,
     price: Number,
     discount : {
         type:Number,

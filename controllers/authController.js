@@ -33,7 +33,7 @@ export const registerUser = async (req, res) => {
             fullname,
           });
           let token = generateToken(user);
-          res.cookie("tokren", token);
+          res.cookie("token", token);
           res.send("user created");
         }
       });
