@@ -20,7 +20,8 @@ export const registerUser = async (req, res) => {
 
     let user = await userModel.findOne({ email });
     if (user) {
-      return res.status(400).send("user already exist");
+        req.flash("error", "User already exists");
+        return res.redirect("/")
     }
     bcrypt.genSalt(10, function (err, salt) {
       bcrypt.hash(password, salt, async function (err, hash) {
@@ -59,5 +60,8 @@ export const loginUser = async (req,res)=>{
     })
 }
 
-
+export const logout = (req,res)=>{
+    res.cookie("token","");
+    res.redirect("/")
+}
 

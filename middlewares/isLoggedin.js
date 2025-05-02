@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import { userModel } from "../models/usermodel";
+import { userModel } from "../models/usermodel.js";
 
-const isLoggedin = async(req,res,next)=>{
+export const isLoggedin = async(req,res,next)=>{
     const token = req.cookies.token;
     if(!token) {
         req.flash("error","Please login first");
@@ -19,4 +19,3 @@ const isLoggedin = async(req,res,next)=>{
     }
 }
 
-export default isLoggedin

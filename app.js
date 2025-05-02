@@ -13,6 +13,7 @@ import usersRouter from "./routes/usersRouter.js";
 import productsRouter from "./routes/productsRouter.js";
 import dotenv from "dotenv";
 import expressSession from "express-session";
+import flash from "connect-flash"
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -27,6 +28,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(json());
 app.use(urlencoded({ extended: true }));
+app.use(expressSession({
+    secret:"secret",
+    resave:false,
+    saveUninitialized:false
+}))
+app.use(flash())
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
