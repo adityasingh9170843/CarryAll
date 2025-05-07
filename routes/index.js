@@ -13,4 +13,9 @@ router.get("/shop",isLoggedin, async(req, res) => {
     res.render("shop",{product});
 })
 
+
+router.get("/logout", (req, res) => {
+    res.clearCookie("token");
+    res.redirect("/");
+})
 export default router;

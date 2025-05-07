@@ -55,7 +55,7 @@ export const loginUser = async (req,res)=>{
         else if(result){
             let token = generateToken(user);
             res.cookie("token",token);
-            res.send("user logged in")
+            res.redirect("/shop")
         }
     })
 }
