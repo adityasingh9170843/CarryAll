@@ -8,6 +8,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <body>
     <%- include('./partials/header') %>
+    <% if(success.length > 0) { %>
+      <div class="bg-blue-500 w-50  text-white p-4 mb-4 ml-90 rounded">
+        <%= success %>
+      </div>
+    <% } %>
     <div class="w-full h-screen flex items-start px-20 py-20">
       <div class="w-[25%] flex h-screen flex-col items-start">
         <div class="flex items-center gap-2">
@@ -52,7 +57,7 @@
               </div>
               <a
                 class="w-7 h-7 flex items-center justify-center rounded-full bg-yellow-400 text-black"
-                href=""
+                href="/addtocart/<%= product._id %>"
               >
                 +
               </a>

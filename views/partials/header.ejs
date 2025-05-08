@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="font-['helvetica_now_display']">
@@ -15,11 +15,11 @@
         <% var loggedin = typeof loggedin !== 'undefined' ? loggedin : true %>
         <% if (loggedin) { %>
             <div class="flex gap-5">
-                <a href="">Shop</a>
-                <a href="">Cart</a>
-                <a href="">My Account</a>
-                <a class="text-red-600" href="/users/logout">Logout</a>
+              <a href="">Shop</a>
+              <a href="/cart">Cart</a>
+              <a href="">My Account</a>
+              <a class="text-red-600" href="/users/logout">Logout</a>
             </div>
-        }%>
+          <% } %>
         
     </nav>
